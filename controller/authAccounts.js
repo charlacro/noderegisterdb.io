@@ -162,7 +162,7 @@ exports.logout = (req, res) => {
 }
 exports.skillset = (req,res) => {
   const account_id = req.params.account_id;
-  db.query("SELECT S.skillset_level, S.skillse_title, S.account_id FROM skillset AS S INNER JOIN accounts AS A ON S.account_id = A.account_id WHERE A.account_id = ?",
+  db.query("SELECT S.skillset_level, S.skillset_title, S.account_id, A.first_name, A.last_name FROM skillset AS S INNER JOIN accounts AS A ON S.account_id = A.account_id WHERE A.account_id = ?",
   account_id,
   (err,results) =>{
       if(err){
